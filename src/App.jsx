@@ -1,7 +1,19 @@
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { SecondaryButton } from "./components/atoms/button/SecondaryButton";
 import { SearchInput } from "./components/molecules/SearchInput";
+import { UserCard } from "./components/organisms/user/UserCard";
 import "./styles.css";
+
+const user = {
+  name: "遼太郎",
+  image: "https://source.unsplash.com/yihlaRCCvd4",
+  email: "aa@ss.cc",
+  phone: "000-999-666",
+  company: {
+    name: "遼太郎株式会社"
+  },
+  website: "https://momo.com"
+};
 
 export default function App() {
   return (
@@ -10,6 +22,7 @@ export default function App() {
       <SecondaryButton>うるむ</SecondaryButton>
       <br />
       <SearchInput />
+      <UserCard user={user} />
     </div>
   );
 }
