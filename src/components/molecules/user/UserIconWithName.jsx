@@ -2,18 +2,6 @@ import styled from "styled-components";
 import { useContext } from "react";
 import { UserContext } from "./../../../providers/UserProvider";
 
-export const UserIconWithName = ({ image, name, isAdmin }) => {
-  const context = useContext(UserContext);
-  console.log(context);
-  return (
-    <SContainer>
-      <SImg height={160} width={160} src={image} alt={name} />
-      <SName>{name}</SName>
-      {isAdmin && <SEdit>編集</SEdit>}
-    </SContainer>
-  );
-};
-
 const SContainer = styled.div`
   text-align: center;
 `;
@@ -34,3 +22,16 @@ const SEdit = styled.span`
   color: #aaa;
   cursor: pointer;
 `;
+
+export const UserIconWithName = ({ image, name }) => {
+  const { userInfo } = useContext(UserContext);
+  const isAdmin = userInfo ? userInfo.isAdmin : false;
+
+  return (
+    <SContainer>
+      <SImg height={160} width={160} src={image} alt={name} />
+      <SName>{name}</SName>
+      {isAdmin && <SEdit>編集</SEdit>}
+    </SContainer>
+  );
+};

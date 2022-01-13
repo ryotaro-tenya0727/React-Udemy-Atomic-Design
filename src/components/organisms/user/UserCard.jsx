@@ -14,10 +14,10 @@ const SDL = styled.dl`
   }
 `;
 
-export const UserCard = ({ user, isAdmin }) => {
+export const UserCard = ({ user }) => {
   return (
     <Card>
-      <UserIconWithName image={user.image} name={user.name} isAdmin={isAdmin} />
+      <UserIconWithName image={user.image} name={user.name} />
       <SDL>
         <dt>メール</dt>
         <dd>{user.email}</dd>
