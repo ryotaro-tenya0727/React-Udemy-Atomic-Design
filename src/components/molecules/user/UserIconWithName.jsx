@@ -14,11 +14,19 @@ const SName = styled.p`
   margin: 0;
   color: #40514e;
 `;
-export const UserIconWithName = ({ image, name }) => {
+
+const SEdit = styled.span`
+  text-decoration: underline;
+  color: #aaa;
+  cursor: pointer;
+`;
+
+export const UserIconWithName = ({ image, name, isAdmin }) => {
   return (
     <SContainer>
       <SImg height={160} width={160} src={image} alt={name} />
       <SName>{name}</SName>
+      {isAdmin && <SEdit>編集</SEdit>}
     </SContainer>
   );
 };
