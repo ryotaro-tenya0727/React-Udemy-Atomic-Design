@@ -1,10 +1,13 @@
 import { createContext } from "react";
+import { useState } from "react";
 
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
-  const contextName = { name: "ほにたん" };
+  const [userInfo, setUserInfo] = useState(null);
   return (
-    <UserContext.Provider value={contextName}>{children}</UserContext.Provider>
+    <UserContext.Provider value={{ userInfo, setUserInfo }}>
+      {children}
+    </UserContext.Provider>
   );
 };
