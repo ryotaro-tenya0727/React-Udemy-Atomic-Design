@@ -1,8 +1,10 @@
-import { useContext } from "react";
 import styled from "styled-components";
-import { UserContext } from "../../providers/UserProvider";
+// import { useContext } from "react";
+// import { UserContext } from "../../providers/UserProvider";
 import { UserCard } from "../organisms/user/UserCard";
 import { SecondaryButton } from "./../atoms/button/SecondaryButton";
+import { useRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 import { SearchInput } from "./../molecules/SearchInput";
 
@@ -35,8 +37,9 @@ const SUserArea = styled.div`
 `;
 
 export const Users = () => {
-  console.log("Users");
-  const { userInfo, setUserInfo } = useContext(UserContext);
+  console.log("ユーザー(Users.jsx)");
+  // const { userInfo, setUserInfo } = useContext(UserContext);
+  const [userInfo, setUserInfo] = useRecoilState(userState);
 
   const onClickSwitch = () => {
     setUserInfo({ isAdmin: !userInfo.isAdmin });

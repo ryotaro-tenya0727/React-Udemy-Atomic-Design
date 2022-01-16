@@ -1,16 +1,21 @@
 import styled from "styled-components";
 import { SecondaryButton } from "./../atoms/button/SecondaryButton";
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { UserContext } from "../../providers/UserProvider";
+// import { useContext } from "react";
+// import { UserContext } from "../../providers/UserProvider";
+// import { useCallback } from "react";
+import { useSetRecoilState } from "recoil";
+import { userState } from "../../store/userState";
 
 const SContainer = styled.div`
   text-align: center;
 `;
 
 export const Top = () => {
+  console.log("top");
   const navigate = useNavigate();
-  const { setUserInfo } = useContext(UserContext);
+  // const { setUserInfo } = useContext(UserContext);
+  const setUserInfo = useSetRecoilState(userState);
 
   const onClickAdmin = () => {
     setUserInfo({ isAdmin: true });
